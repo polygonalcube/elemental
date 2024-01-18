@@ -9,8 +9,11 @@ public class MoveComponent : MonoBehaviour
 	
 	public float accel;
     public float decel;
-	public float maxSpeed;
+	public Vector3 maxSpeed;
 	public bool isNormalized;
+
+    public bool affectedByGravity;
+    public float gravity;
 
 	public float xSpeed;
     public float ySpeed;
@@ -45,15 +48,15 @@ public class MoveComponent : MonoBehaviour
         }
     }
 
-    public float Cap(float speedVar)
+    public float Cap(float speedVar, float speedCap)
     {
-        if(speedVar > maxSpeed)
+        if(speedVar > speedCap)
         {
-            return maxSpeed;
+            return speedCap;
         }
-        else if(speedVar < -maxSpeed)
+        else if(speedVar < -speedCap)
         {
-            return -maxSpeed;
+            return -speedCap;
         }
         else
         {
@@ -98,14 +101,23 @@ public class MoveComponent : MonoBehaviour
 		{
 			xSpeed = Decelerate(xSpeed);
 		}
-		if (Mathf.Abs(moveDir.y) != 0f)
+
+        if (affectedByGravity)
         {
-            ySpeed = Accelerate(ySpeed, moveDir.y);
+            ySpeed -= gravity;
         }
-		else
-		{
-			ySpeed = Decelerate(ySpeed);
-		}
+        else
+        {
+            if (Mathf.Abs(moveDir.y) != 0f)
+            {
+                ySpeed = Accelerate(ySpeed, moveDir.y);
+            }
+            else
+            {
+                ySpeed = Decelerate(ySpeed);
+            }
+        }
+		
 		if (Mathf.Abs(moveDir.z) != 0f)
         {
             zSpeed = Accelerate(zSpeed, moveDir.z);
@@ -116,9 +128,9 @@ public class MoveComponent : MonoBehaviour
 		}
 
 		//prevents the object from going too fast
-		xSpeed = Cap(xSpeed);
-		ySpeed = Cap(ySpeed);
-		zSpeed = Cap(zSpeed);
+		xSpeed = Cap(xSpeed, maxSpeed.x);
+		ySpeed = Cap(ySpeed, maxSpeed.y);
+		zSpeed = Cap(zSpeed, maxSpeed.z);
 
 		//final movement; if isNormalized is true, diagonal movement will not be faster
 		if (isNormalized)
