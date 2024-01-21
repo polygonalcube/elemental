@@ -167,7 +167,7 @@ public class MoveComponent : MonoBehaviour
 		}
 		*/
 		//prevents the object from going too fast
-		angularSpeed = Cap(angularSpeed);
+		//angularSpeed = Cap(angularSpeed);
 
 		//transform.position += moveDir/*TransformDirection(moveDir)*/ * angularSpeed * Time.deltaTime;
 		charCon.Move(moveDir * angularSpeed * Time.deltaTime);
