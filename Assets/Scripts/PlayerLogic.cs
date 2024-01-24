@@ -7,13 +7,18 @@ using UnityEngine.SceneManagement;
 public class PlayerLogic : MonoBehaviour
 {
     public MoveComponent mover;
+    public ShootingComponent shooter;
 
-    public CharacterController charCon;
+    CharacterController charCon;
+    public GameObject shotOrigin;
 
     //movement
     public InputAction movement;
-
     public Vector3 movValue = Vector3.zero;
+
+    //shooting
+    public InputAction shooting;
+    public float shotVal;
 
     public enum States
     {
@@ -25,16 +30,20 @@ public class PlayerLogic : MonoBehaviour
     void OnEnable()
     {
         movement.Enable();
+        shooting.Enable();
     }
 
     void OnDisable()
     {
         movement.Disable();
+        shooting.Disable();
     }
 
     void Start()
     {
-        
+        mover = GetComponent<MoveComponent>();
+        shooter = GetComponent<ShootingComponent>();
+        charCon = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -44,6 +53,7 @@ public class PlayerLogic : MonoBehaviour
             case States.IDLE:
                 ReceiveInput();
                 //Movement();
+                Shooting();
                 if (movValue != Vector3.zero)
                 {
                     state = States.MOVE;
@@ -52,6 +62,7 @@ public class PlayerLogic : MonoBehaviour
             case States.MOVE:
                 ReceiveInput();
                 Movement();
+                Shooting();
                 if (movValue == Vector3.zero)
                 {
                     state = States.IDLE;
@@ -64,11 +75,22 @@ public class PlayerLogic : MonoBehaviour
     {
         movValue = movement.ReadValue<Vector2>();
         movValue = new Vector3(movValue.x, 0f, movValue.y);
+        movValue = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * movValue;
+        
+        shotVal = shooting.ReadValue<float>();
     }
 
     void Movement()
     {
         mover.Move(movValue);
         mover.ResetY();
+    }
+
+    void Shooting()
+    {
+        if (shotVal > 0)
+        {
+            shooter.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward);
+        }
     }
 }

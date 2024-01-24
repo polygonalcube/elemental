@@ -48,20 +48,13 @@ public class MoveComponent : MonoBehaviour
         }
     }
 
-    public float Cap(float speedVar, float speedCap)
+    public float Cap(float speedVar, float speedCap, float magni)
     {
-        if(speedVar > speedCap)
+        if(Mathf.Abs(speedVar) > (speedCap * Mathf.Abs(magni)))
         {
-            return speedCap;
+            return speedCap * magni;
         }
-        else if(speedVar < -speedCap)
-        {
-            return -speedCap;
-        }
-        else
-        {
-            return speedVar;
-        }
+        return speedVar;
     }
 
     public void BoundXY(float xBound, float yBound)
@@ -128,9 +121,9 @@ public class MoveComponent : MonoBehaviour
 		}
 
 		//prevents the object from going too fast
-		xSpeed = Cap(xSpeed, maxSpeed.x);
-		ySpeed = Cap(ySpeed, maxSpeed.y);
-		zSpeed = Cap(zSpeed, maxSpeed.z);
+		xSpeed = Cap(xSpeed, maxSpeed.x, moveDir.x);
+		ySpeed = Cap(ySpeed, maxSpeed.y, moveDir.y);
+		zSpeed = Cap(zSpeed, maxSpeed.z, moveDir.z);
 
 		//final movement; if isNormalized is true, diagonal movement will not be faster
 		if (isNormalized)
