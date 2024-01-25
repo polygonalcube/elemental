@@ -90,7 +90,7 @@ public class PlayerLogic : MonoBehaviour
     {
         if (shotVal > 0)
         {
-            shooter.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward);
+            shooter.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward, destroyTimer: 3f);
         }
     }
 }

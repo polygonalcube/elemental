@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class WoodDoor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    public float burnTime = 3f; 
+    
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Fire")
         {
-            Destroy(this.gameObject);
+            Destroy(col.gameObject);
+            StartCoroutine(Burn());
         }
+    }
+
+    IEnumerator Burn()
+    {
+        yield return new WaitForSeconds(burnTime);
+        Destroy(this.gameObject);
     }
 }

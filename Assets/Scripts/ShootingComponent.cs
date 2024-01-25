@@ -21,11 +21,11 @@ public class ShootingComponent : MonoBehaviour
         shotDelay -= Time.deltaTime;
     }
 
-    public void Shoot(Vector3 startingPosition, Vector3 shotDirection)
+    public void Shoot(Vector3 startingPosition, Vector3 shotDirection, GameObject parent = null, bool localPositioning = false, float destroyTimer = 0f)
     {
         if (shotDelay <= 0)
         {
-            GameObject newProjectile = spawner.Spawn(transform.position);
+            GameObject newProjectile = spawner.Spawn(startingPosition, parent, localPositioning, destroyTimer);
             if (newProjectile.TryGetComponent<MoveComponent>(out MoveComponent mover))
             {
                 mover.angularSpeed = angularSpeed;
