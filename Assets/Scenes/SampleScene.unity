@@ -1274,7 +1274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 1657689074}
   speed: {x: 0, y: 0, z: 0}
-  angularSpeed: 150
+  angularSpeed: 30
   shotDelaySet: 0.5
 --- !u!1 &1685555080
 GameObject:
