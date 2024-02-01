@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -825,8 +825,7 @@ GameObject:
   - component: {fileID: 1504125560}
   - component: {fileID: 1504125563}
   - component: {fileID: 1504125562}
-  - component: {fileID: 1504125561}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,29 +847,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1657689070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1504125561
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504125559}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1504125562
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -930,7 +906,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1530080499}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1038,10 +1014,14 @@ GameObject:
   - component: {fileID: 1657689070}
   - component: {fileID: 1657689073}
   - component: {fileID: 1657689072}
+  - component: {fileID: 1657689079}
+  - component: {fileID: 1657689078}
   - component: {fileID: 1657689075}
   - component: {fileID: 1657689074}
+  - component: {fileID: 1657689077}
+  - component: {fileID: 1657689076}
   - component: {fileID: 1657689071}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1085,12 +1065,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.01
+  m_Radius: 0.8
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &1657689072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,8 +1086,8 @@ MonoBehaviour:
   charCon: {fileID: 1657689071}
   accel: 999
   decel: 999
-  maxSpeed: {x: 5, y: 99, z: 5}
-  isNormalized: 1
+  maxSpeed: {x: 5, y: 20, z: 5}
+  isNormalized: 0
   affectedByGravity: 1
   gravity: -10
   xSpeed: 0
@@ -1127,12 +1107,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mover: {fileID: 1657689072}
-  shooter: {fileID: 1657689075}
+  earther: {fileID: 1657689079}
+  burner: {fileID: 1657689075}
+  winder: {fileID: 1657689077}
   shotOrigin: {fileID: 1530080498}
   movement:
     m_Name: Movement
     m_Type: 0
-    m_ExpectedControlType: Analog
+    m_ExpectedControlType: 
     m_Id: bf7db3f7-68fe-4832-8452-6c234afd8bce
     m_Processors: 
     m_Interactions: 
@@ -1219,6 +1201,33 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
   movValue: {x: 0, y: 0, z: 0}
+  elementSwitcher:
+    m_Name: Element Switcher
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2ecaa63d-fa7b-4725-b5e1-fdf5213c6c3d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: db4c3518-6042-4ff2-b35d-f8ce4acf81ff
+      m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Element Switcher
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 291d155e-7579-4298-acff-095052008565
+      m_Path: <Keyboard>/m
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Element Switcher
+      m_Flags: 0
+    m_Flags: 0
+  elemVal: 0
+  element: 0
   shooting:
     m_Name: Shooting
     m_Type: 0
@@ -1237,7 +1246,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 95374d42-10fc-41a6-83dc-e6e8afe7deb1
-      m_Path: <Keyboard>/m
+      m_Path: <Keyboard>/n
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1276,6 +1285,65 @@ MonoBehaviour:
   speed: {x: 0, y: 0, z: 0}
   angularSpeed: 30
   shotDelaySet: 0.5
+--- !u!114 &1657689076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657689069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6735374ce9c64e32db84a585ba00ee53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnedObject: {fileID: 0}
+--- !u!114 &1657689077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657689069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6924ab488bb298ddf8a75cd5bffb78fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 1657689076}
+  speed: {x: 0, y: 0, z: 0}
+  angularSpeed: 0
+  shotDelaySet: 0
+--- !u!114 &1657689078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657689069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6735374ce9c64e32db84a585ba00ee53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnedObject: {fileID: 2296325046105763734, guid: e89deb0789363b83ea53d1e68f91672c,
+    type: 3}
+--- !u!114 &1657689079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657689069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6924ab488bb298ddf8a75cd5bffb78fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 1657689078}
+  speed: {x: 0, y: 5, z: 0}
+  angularSpeed: 10
+  shotDelaySet: 6
 --- !u!1 &1685555080
 GameObject:
   m_ObjectHideFlags: 0

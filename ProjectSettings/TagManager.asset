@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
+  - Stone Pillar
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Stone
   - 
   - 
   - 

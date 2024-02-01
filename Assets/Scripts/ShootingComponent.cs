@@ -21,7 +21,7 @@ public class ShootingComponent : MonoBehaviour
         shotDelay -= Time.deltaTime;
     }
 
-    public void Shoot(Vector3 startingPosition, Vector3 shotDirection, GameObject parent = null, bool localPositioning = false, float destroyTimer = 0f)
+    public GameObject Shoot(Vector3 startingPosition, Vector3 shotDirection, GameObject parent = null, bool localPositioning = false, float destroyTimer = 0f)
     {
         if (shotDelay <= 0)
         {
@@ -32,12 +32,18 @@ public class ShootingComponent : MonoBehaviour
             }
             if (shotDirection != Vector3.zero)
             {
+                if (newProjectile.TryGetComponent<PillarLogic>(out PillarLogic pillar))
+                {
+                    pillar.direction = shotDirection;
+                }
                 if (newProjectile.TryGetComponent<FireballLogic>(out FireballLogic fireball))
                 {
                     fireball.direction = shotDirection;
                 }
             }
             shotDelay = shotDelaySet;
+            return newProjectile;
         }
+        return null;
     }
 }

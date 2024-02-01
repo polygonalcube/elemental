@@ -97,7 +97,7 @@ public class MoveComponent : MonoBehaviour
 
         if (affectedByGravity)
         {
-            ySpeed -= gravity;
+            ySpeed += gravity * Time.deltaTime;
         }
         else
         {
@@ -122,7 +122,14 @@ public class MoveComponent : MonoBehaviour
 
 		//prevents the object from going too fast
 		xSpeed = Cap(xSpeed, maxSpeed.x, moveDir.x);
-		ySpeed = Cap(ySpeed, maxSpeed.y, moveDir.y);
+        if (affectedByGravity)
+        {
+            ySpeed = Cap(ySpeed, maxSpeed.y, -1);
+        }
+        else
+        {
+            ySpeed = Cap(ySpeed, maxSpeed.y, moveDir.y);
+        }
 		zSpeed = Cap(zSpeed, maxSpeed.z, moveDir.z);
 
 		//final movement; if isNormalized is true, diagonal movement will not be faster
