@@ -108,10 +108,11 @@ public class PlayerLogic : MonoBehaviour
             case Elements.EARTH:
                 if (shotVal > 0f)
                 {
-                    GameObject pillar = earther.Shoot(transform.position + (transform.forward * 3f) + (Vector3.down * 5f), new Vector3(0f, 1f, 0f), destroyTimer: 7f);
-                    if (pillar != null)
+                    LayerMask ignoreLayer = LayerMask.NameToLayer("Player");
+                    RaycastHit hit;
+                    if (Physics.Raycast(shotOrigin.transform.position + (shotOrigin.transform.up * .8f), shotOrigin.transform.forward, out hit, 5f, ignoreLayer))
                     {
-                        //transform.position += Vector3.up;
+                        GameObject pillar = earther.Shoot(transform.position + (transform.forward * 3f) + (Vector3.down * 5f), new Vector3(0f, 1f, 0f), destroyTimer: 7f);
                     }
                 }
                 break;
@@ -148,9 +149,11 @@ public class PlayerLogic : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Stone Pillar")
+        LayerMask stoneLayer = LayerMask.NameToLayer("Stone");
+        if (col.gameObject.layer == stoneLayer)
         {
-
+            //transform.position += col.gameObject.GetComponent<PillarLogic>().movRef;
+            Debug.Log("pillar");
         }
     }
 }

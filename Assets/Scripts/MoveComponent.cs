@@ -83,7 +83,7 @@ public class MoveComponent : MonoBehaviour
         transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
     }
 
-    public void Move(Vector3 moveDir)
+    public Vector3 Move(Vector3 moveDir)
     {
 		//acceleration and deceleration
         if (Mathf.Abs(moveDir.x) != 0f)
@@ -146,15 +146,18 @@ public class MoveComponent : MonoBehaviour
 			}
 			//transform.position += new Vector3(xSpeed, ySpeed, zSpeed).normalized * Mathf.Abs(highestSpeed) * Time.deltaTime;
 			charCon.Move(new Vector3(xSpeed, ySpeed, zSpeed).normalized * Mathf.Abs(highestSpeed) * Time.deltaTime);
+            return new Vector3(xSpeed, ySpeed, zSpeed).normalized * Mathf.Abs(highestSpeed) * Time.deltaTime;
 		}
 		else
 		{
 			//transform.position += new Vector3(xSpeed, ySpeed, zSpeed) * Time.deltaTime;
 			charCon.Move(new Vector3(xSpeed, ySpeed, zSpeed) * Time.deltaTime);
+            return new Vector3(xSpeed, ySpeed, zSpeed) * Time.deltaTime;
 		}
+        return Vector3.zero;
     }
 
-    public void MoveAngularly(Vector3 moveDir)
+    public Vector3 MoveAngularly(Vector3 moveDir)
     {
 		/*
         if (Mathf.Abs(moveDir.magnitude) != 0f)
@@ -171,5 +174,6 @@ public class MoveComponent : MonoBehaviour
 
 		//transform.position += moveDir/*TransformDirection(moveDir)*/ * angularSpeed * Time.deltaTime;
 		charCon.Move(moveDir * angularSpeed * Time.deltaTime);
+        return moveDir * angularSpeed * Time.deltaTime;
     }
 }

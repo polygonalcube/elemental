@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8693267838415268439}
   - component: {fileID: 6184454042756975}
   - component: {fileID: 3974681551670800431}
-  - component: {fileID: 8571649795895627893}
+  - component: {fileID: 6554042913806080745}
   m_Layer: 6
   m_Name: Stone Pillar
   m_TagString: Untagged
@@ -52,6 +52,9 @@ MonoBehaviour:
   mover: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
   movAmt: 0
+  movMul: 0.05
+  slowMovThres: 0.5
+  movRef: {x: 0, y: 0, z: 0}
 --- !u!114 &8693267838415268439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +91,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 4294967295
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -122,33 +125,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.5, y: 5, z: 2.5}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!54 &8571649795895627893
-Rigidbody:
+--- !u!65 &6554042913806080745
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2296325046105763734}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+    m_Bits: 1
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 5, z: 2.5}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!1 &5898896830726152290
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +207,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 82bc6e7ed0bf8f1e88d751bd18cbed27, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

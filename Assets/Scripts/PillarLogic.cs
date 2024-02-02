@@ -7,6 +7,9 @@ public class PillarLogic : MonoBehaviour
     public MoveComponent mover;
     public Vector3 direction;
     public float movAmt = 0f;
+    public float movMul = 0.1f;
+    public float slowMovThres = 1f;
+    public Vector3 movRef;
     
     void Start()
     {
@@ -17,9 +20,13 @@ public class PillarLogic : MonoBehaviour
     void Update()
     {
         float prevY = transform.position.y;
-        if (movAmt < 5f)
+        if (movAmt < slowMovThres)
         {
-            mover.MoveAngularly(direction);
+            movRef = mover.MoveAngularly(direction * movMul);
+        }
+        else if (movAmt < 5f)
+        {
+            movRef = mover.MoveAngularly(direction);
         }
         movAmt += Mathf.Abs(transform.position.y - prevY);
     }

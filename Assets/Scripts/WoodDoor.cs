@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WoodDoor : MonoBehaviour
 {
+    public Material burning;
+    public MeshRenderer mr;
     public float burnTime = 3f; 
     
     void OnTriggerEnter(Collider col)
@@ -17,6 +19,9 @@ public class WoodDoor : MonoBehaviour
 
     IEnumerator Burn()
     {
+        List<Material> mats = new List<Material>();
+        mats.Add(burning);
+        mr.SetMaterials(mats);
         yield return new WaitForSeconds(burnTime);
         Destroy(this.gameObject);
     }
