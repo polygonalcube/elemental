@@ -40,6 +40,10 @@ public class ShootingComponent : MonoBehaviour
                 {
                     fireball.direction = shotDirection;
                 }
+                if (newProjectile.TryGetComponent<GustLogic>(out GustLogic gust))
+                {
+                    gust.direction = shotDirection;
+                }
             }
             shotDelay = shotDelaySet;
             return newProjectile;

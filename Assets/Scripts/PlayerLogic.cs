@@ -125,7 +125,7 @@ public class PlayerLogic : MonoBehaviour
             case Elements.AIR:
                 if (shotVal > 0f)
                 {
-                    winder.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward, destroyTimer: 5f);
+                    winder.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward, destroyTimer: 1f);
                 }
                 break;
         }
