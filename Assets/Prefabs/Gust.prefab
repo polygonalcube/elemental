@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3601947283327304539}
   m_Layer: 0
   m_Name: Gust
-  m_TagString: Untagged
+  m_TagString: Air
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
