@@ -31,12 +31,11 @@ public class CameraLogic : MonoBehaviour
         player = GameManager.gm.FindPlayer().transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         movValue = cam.ReadValue<Vector2>();
         xRot -= movValue.y * sensitivity * Time.deltaTime;
-        xRot = Mathf.Clamp(xRot, -180f, 180f);
+        xRot = Mathf.Clamp(xRot, -90f, 90f);
         transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
         if (player == null)
         {
