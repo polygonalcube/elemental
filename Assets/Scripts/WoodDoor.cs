@@ -21,6 +21,7 @@ public class WoodDoor : MonoBehaviour
     {
         List<Material> mats = new List<Material>();
         mats.Add(burning);
+        mats.Add(burning);
         mr.SetMaterials(mats);
         yield return new WaitForSeconds(burnTime);
         Destroy(this.gameObject);
