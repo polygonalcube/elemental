@@ -123,8 +123,9 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _FireDensity: 12.46
     - _FireEmissionStrength: 1
-    - _FireMoveSpeed: 0.5
+    - _FireMoveSpeed: 0.68
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
