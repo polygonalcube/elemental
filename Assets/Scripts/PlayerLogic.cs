@@ -33,6 +33,8 @@ public class PlayerLogic : MonoBehaviour
     public InputAction shooting;
     public float shotVal;
 
+    public bool[] unlocks = {false, false, false}; //TODO: make private
+
     public enum States
     {
         IDLE,
@@ -106,7 +108,7 @@ public class PlayerLogic : MonoBehaviour
         switch (element)
         {
             case Elements.EARTH:
-                if (shotVal > 0f)
+                if (shotVal > 0f && unlocks[0])
                 {
                     LayerMask ignoreLayer = LayerMask.NameToLayer("Player");
                     RaycastHit hit;
@@ -117,13 +119,13 @@ public class PlayerLogic : MonoBehaviour
                 }
                 break;
             case Elements.FIRE:
-                if (shotVal > 0f)
+                if (shotVal > 0f && unlocks[1])
                 {
                     burner.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward, destroyTimer: 3f);
                 }
                 break;
             case Elements.AIR:
-                if (shotVal > 0f)
+                if (shotVal > 0f && unlocks[2])
                 {
                     winder.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward, destroyTimer: 1f);
                 }
