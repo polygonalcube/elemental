@@ -101,7 +101,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _LineThickness: 2
+    - _LineThickness: 3.5
     - _Metallic: 0
     - _NormalThreshold: 0.5
     - _OVERLAY: 1
@@ -117,7 +117,7 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _overallBlackLvl: 2.5
+    - _overallBlackLvl: 4
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

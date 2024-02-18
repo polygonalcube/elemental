@@ -240,6 +240,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireBurst
       objectReference: {fileID: 0}
+    - target: {fileID: 2003050855136327761, guid: 906e4b55e597a2743b39a7a7d064ca84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8555412727082141918, guid: 906e4b55e597a2743b39a7a7d064ca84,
         type: 3}
       propertyPath: m_LocalPosition.x
