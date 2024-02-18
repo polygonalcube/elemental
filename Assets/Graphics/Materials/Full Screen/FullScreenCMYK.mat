@@ -110,8 +110,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DotScale: 350
-    - _DotSize: 0.63
+    - _DotScale: 408
+    - _DotSize: 0.483
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
