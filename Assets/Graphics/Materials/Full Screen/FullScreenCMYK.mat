@@ -110,8 +110,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DotScale: 408
-    - _DotSize: 0.483
+    - _DotScale: 365
+    - _DotSize: 0.54
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
@@ -127,11 +127,11 @@ Material:
     - _NoiseStrength: 0.218
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _PatternRandomness: 0.68
+    - _PatternRandomness: 0.98
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Rotation: 45
-    - _Saturation: 1.19
+    - _Saturation: 2
     - _ShadingMultiplier: 0.1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
