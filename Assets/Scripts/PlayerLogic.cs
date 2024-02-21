@@ -42,6 +42,8 @@ public class PlayerLogic : MonoBehaviour
     }
     public States state = States.IDLE;
 
+    public Animator anim;
+
     void OnEnable()
     {
         movement.Enable();
@@ -71,6 +73,8 @@ public class PlayerLogic : MonoBehaviour
                 ReceiveInput();
                 Movement();
                 Shooting();
+                //Animation();
+                anim.SetBool("is_moving", false);
                 if (movValue != Vector3.zero)
                 {
                     state = States.MOVE;
@@ -80,6 +84,7 @@ public class PlayerLogic : MonoBehaviour
                 ReceiveInput();
                 Movement();
                 Shooting();
+                anim.SetBool("is_moving", true);
                 if (movValue == Vector3.zero)
                 {
                     state = States.IDLE;
@@ -130,6 +135,14 @@ public class PlayerLogic : MonoBehaviour
                     winder.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward, destroyTimer: 1f);
                 }
                 break;
+        }
+    }
+
+    void Animation()
+    {
+        if (anim != null)
+        {
+            anim.Play("idle");
         }
     }
     
