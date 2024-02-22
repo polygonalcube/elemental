@@ -121,18 +121,21 @@ public class PlayerLogic : MonoBehaviour
                     {
                         GameObject pillar = earther.Shoot(transform.position + (transform.forward * 3f) + (Vector3.down * 5f), new Vector3(0f, 1f, 0f), destroyTimer: 7f);
                     }
+                    StartCoroutine(Cast());
                 }
                 break;
             case Elements.FIRE:
                 if (shotVal > 0f && unlocks[1])
                 {
                     burner.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward, destroyTimer: 3f);
+                    StartCoroutine(Cast());
                 }
                 break;
             case Elements.AIR:
                 if (shotVal > 0f && unlocks[2])
                 {
                     winder.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward, destroyTimer: 1f);
+                    StartCoroutine(Cast());
                 }
                 break;
         }
@@ -160,6 +163,13 @@ public class PlayerLogic : MonoBehaviour
             yield return new WaitUntil(() => elemVal == 0f);
             yield return new WaitUntil(() => elemVal > 0f);
         }
+    }
+
+    IEnumerator Cast()
+    {
+        anim.SetBool("is_casting", true);
+        yield return new WaitForSeconds(2f/3f);
+        anim.SetBool("is_casting", false);
     }
 
     void OnTriggerEnter(Collider col)

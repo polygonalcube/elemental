@@ -154,7 +154,6 @@ public class MoveComponent : MonoBehaviour
 			charCon.Move(new Vector3(xSpeed, ySpeed, zSpeed) * Time.deltaTime);
             return new Vector3(xSpeed, ySpeed, zSpeed) * Time.deltaTime;
 		}
-        return Vector3.zero;
     }
 
     public Vector3 MoveAngularly(Vector3 moveDir)

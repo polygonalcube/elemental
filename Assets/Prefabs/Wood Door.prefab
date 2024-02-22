@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6815312191074388678}
   - component: {fileID: 9080394635393018218}
+  - component: {fileID: 4222920171898848538}
   - component: {fileID: 7946750639304754799}
   - component: {fileID: 1212153405889067408}
   - component: {fileID: 1806519818640378951}
@@ -48,9 +49,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9eb4d05cd6c006e99940f70c564d383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burning: {fileID: 2100000, guid: 850bbee43346611768c49683a1a39654, type: 2}
+  burning: {fileID: 2100000, guid: 96da980de1ae1894f9ff1ec7e388f740, type: 2}
   mr: {fileID: -7511558181221131132, guid: 7327870245c0c5b49b38ba23537db79a, type: 3}
   burnTime: 3
+  isBurning: 0
+--- !u!114 &4222920171898848538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457355096548982339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6735374ce9c64e32db84a585ba00ee53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnedObject: {fileID: 0}
 --- !u!65 &7946750639304754799
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -7,22 +7,29 @@ public class WoodDoor : MonoBehaviour
     public Material burning;
     public MeshRenderer mr;
     public float burnTime = 3f; 
+    public bool isBurning = false;
+
+    void Update()
+    {
+        if (isBurning)
+        {
+            burning.SetFloat("_ColorBurnBlend", (burning.GetFloat("_ColorBurnBlend") < 1.25f) ? (burning.GetFloat("_ColorBurnBlend") + (1.25f / 3f) * Time.deltaTime) : 1.25f);
+            burning.SetFloat("_FireEmissionStrength", (burning.GetFloat("_FireEmissionStrength") < 4.5f) ? (burning.GetFloat("_FireEmissionStrength") + (4.5f / 3f) * Time.deltaTime) : 4.5f);
+        }
+    }
     
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Fire")
         {
             Destroy(col.gameObject);
+            isBurning = true;
             StartCoroutine(Burn());
         }
     }
 
     IEnumerator Burn()
     {
-        List<Material> mats = new List<Material>();
-        mats.Add(burning);
-        mats.Add(burning);
-        mr.SetMaterials(mats);
         yield return new WaitForSeconds(burnTime);
         Destroy(this.gameObject);
     }

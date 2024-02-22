@@ -5,6 +5,8 @@ using UnityEngine;
 public class PillarLogic : MonoBehaviour
 {
     public MoveComponent mover;
+    [SerializeField] SpawningComponent spawner;
+
     public Vector3 direction;
     public float movAmt = 0f;
     public float movMul = 0.1f;
@@ -14,6 +16,8 @@ public class PillarLogic : MonoBehaviour
     void Start()
     {
         mover = GetComponent<MoveComponent>();
+        spawner = GetComponent<SpawningComponent>();
+        spawner.Spawn(transform.position + (Vector3.up * 5f));
         movAmt = 0f;
     }
 
