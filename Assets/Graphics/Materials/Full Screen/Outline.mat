@@ -101,7 +101,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _LineThickness: 3.5
+    - _LineThickness: 2.75
     - _Metallic: 0
     - _NormalThreshold: 0.5
     - _OVERLAY: 1

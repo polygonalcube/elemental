@@ -120,8 +120,8 @@ public class PlayerLogic : MonoBehaviour
                     if (Physics.Raycast(shotOrigin.transform.position + (shotOrigin.transform.up * .8f), shotOrigin.transform.forward, out hit, 5f, ignoreLayer))
                     {
                         GameObject pillar = earther.Shoot(transform.position + (transform.forward * 3f) + (Vector3.down * 5f), new Vector3(0f, 1f, 0f), destroyTimer: 7f);
+                        StartCoroutine(Cast());
                     }
-                    StartCoroutine(Cast());
                 }
                 break;
             case Elements.FIRE:

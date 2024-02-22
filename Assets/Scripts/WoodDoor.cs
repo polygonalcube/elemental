@@ -9,6 +9,12 @@ public class WoodDoor : MonoBehaviour
     public float burnTime = 3f; 
     public bool isBurning = false;
 
+    void Start()
+    {
+        burning.SetFloat("_ColorBurnBlend", 0f);
+        burning.SetFloat("_FireEmissionStrength", 0f);
+    }
+
     void Update()
     {
         if (isBurning)

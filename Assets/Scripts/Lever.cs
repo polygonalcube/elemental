@@ -9,9 +9,14 @@ public class Lever : MonoBehaviour
     public float rotAmt = 0f;
     public float rotMulti = 0.1f;
 
+    public Transform[] doors;
+    Vector3[] positions;
+    public float ascendSpd = 1.5f;
+
     void Start()
     {
         pull.eulerAngles = new Vector3(-45f, pull.eulerAngles.y, pull.eulerAngles.z);
+        positions = new Vector3[doors.Length];
     }
 
     void Update()
@@ -24,6 +29,10 @@ public class Lever : MonoBehaviour
                 pull.eulerAngles -= new Vector3(1f, 0f, 0f) * rotMulti;
             }
             rotAmt += Mathf.Abs(pull.eulerAngles.x - prevRot);
+            for (int i = 0; i < doors.Length; i++)
+            {
+                if (doors[i].position.y < (positions[i].y + 10f)) doors[i].position += Vector3.up * ascendSpd * Time.deltaTime;
+            }
         }
     }
 
@@ -32,6 +41,10 @@ public class Lever : MonoBehaviour
         if (col.gameObject.tag == "Air")
         {
             isOn = true;
+            for (int i = 0; i < doors.Length; i++)
+            {
+                positions[i] = doors[i].position;
+            }
         }
     }
 }

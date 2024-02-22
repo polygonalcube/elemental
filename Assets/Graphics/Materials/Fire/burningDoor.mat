@@ -115,7 +115,7 @@ Material:
     - _BurnAmt: 4.5
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorBurnBlend: 0
+    - _ColorBurnBlend: 1.25
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -124,7 +124,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _FireDensity: 12.46
-    - _FireEmissionStrength: 0
+    - _FireEmissionStrength: 4.5
     - _FireMoveSpeed: 0.68
     - _GlossMapScale: 0
     - _Glossiness: 0
