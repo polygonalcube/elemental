@@ -11,11 +11,21 @@ public class GustLogic : MonoBehaviour
     {
         mover = GetComponent<MoveComponent>();
         transform.rotation = Quaternion.LookRotation(direction);
-        Debug.Log(transform.rotation);
     }
 
     void Update()
     {
         mover.MoveAngularly(direction);
+    }
+
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(1f/60f);
+        Destroy(this.gameObject);
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if ((col.gameObject.tag != "Player") && (col.gameObject.tag != "Air")) StartCoroutine(Die());
     }
 }
