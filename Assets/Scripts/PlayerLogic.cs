@@ -73,7 +73,6 @@ public class PlayerLogic : MonoBehaviour
                 ReceiveInput();
                 Movement();
                 Shooting();
-                //Animation();
                 anim.SetBool("is_moving", false);
                 if (movValue != Vector3.zero)
                 {
@@ -140,14 +139,6 @@ public class PlayerLogic : MonoBehaviour
                 break;
         }
     }
-
-    void Animation()
-    {
-        if (anim != null)
-        {
-            anim.Play("idle");
-        }
-    }
     
     IEnumerator Switch()
     {
@@ -168,7 +159,7 @@ public class PlayerLogic : MonoBehaviour
     IEnumerator Cast()
     {
         anim.SetBool("is_casting", true);
-        yield return new WaitForSeconds(2f/3f);
+        yield return new WaitForSeconds(.5f);
         anim.SetBool("is_casting", false);
     }
 
@@ -178,7 +169,6 @@ public class PlayerLogic : MonoBehaviour
         if (col.gameObject.layer == stoneLayer)
         {
             //transform.position += col.gameObject.GetComponent<PillarLogic>().movRef;
-            Debug.Log("pillar");
         }
     }
 }
