@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawningComponent : MonoBehaviour
@@ -15,7 +15,7 @@ public class SpawningComponent : MonoBehaviour
         }
         if (destroyTimer > 0f)
         {
-            StartCoroutine(Despawn(newObject, destroyTimer));
+            GameManager.gm.StartCoroutine(Despawn(newObject, destroyTimer));
         }
         return newObject;
     }

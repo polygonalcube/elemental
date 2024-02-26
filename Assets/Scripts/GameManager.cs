@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -40,5 +40,11 @@ public class GameManager : MonoBehaviour
     public PlayerLogic FindPlayerScript()
     {
         return GameObject.Find("Player").GetComponent<PlayerLogic>();
+    }
+
+    IEnumerator Despawn(GameObject despawnee, float timer)
+    {
+        yield return new WaitForSeconds(timer);
+        Destroy(despawnee);
     }
 }
