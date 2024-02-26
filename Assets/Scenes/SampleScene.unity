@@ -5662,6 +5662,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 4566123861840437304, guid: 95683e3a086e0d343ab5fabd57447617,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6748942716447435131, guid: 95683e3a086e0d343ab5fabd57447617,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5934,6 +5939,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SingleFireSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 2250010190943902005, guid: 7887ee4c944a3c540ae8716a425c4b56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8236818671127718330, guid: 7887ee4c944a3c540ae8716a425c4b56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6205,6 +6215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FireBurst
+      objectReference: {fileID: 0}
+    - target: {fileID: 6542435009656309229, guid: bd23a5798832abc47862f4b8b56e7eab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6561443383834660175, guid: bd23a5798832abc47862f4b8b56e7eab,
         type: 3}

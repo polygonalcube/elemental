@@ -6,6 +6,8 @@ public class FireballLogic : MonoBehaviour
 {
     public MoveComponent mover;
     public Vector3 direction;
+    public GameObject FireBurst;
+    public SpawningComponent spawner;
     
     void Start()
     {
@@ -25,6 +27,17 @@ public class FireballLogic : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+        if (col.gameObject.tag != "Player")
+        {
+            GameObject fireburst = Instantiate(FireBurst, gameObject.transform.position, Quaternion.identity);
+            fireburst.GetComponent<ParticleSystem>().Play();
+            // I tried this after the spawning component didnt work, so I tried to
+            // make it just despawn using the despawner in the component, to control
+            // the time, but it's at a protected level so this won't work.
+            //StartCoroutine(spawner.Despawn(fireburst, 5));
+            // I tried to use the spawning component and didn't get it right
+            //spawner.Spawn(gameObject.transform.position, FireBurst, false, 5);
+        }
         if ((col.gameObject.tag != "Player") && (col.gameObject.tag != "Fire")) StartCoroutine(Die());
     }
 }
