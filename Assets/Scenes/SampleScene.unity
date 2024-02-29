@@ -2854,7 +2854,7 @@ PrefabInstance:
     - target: {fileID: 4666782359134743566, guid: 6bacec7263380186f9c704aed4e404d2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.1663623
+      value: -68.27
       objectReference: {fileID: 0}
     - target: {fileID: 4666782359134743566, guid: 6bacec7263380186f9c704aed4e404d2,
         type: 3}
@@ -2864,7 +2864,7 @@ PrefabInstance:
     - target: {fileID: 4666782359134743566, guid: 6bacec7263380186f9c704aed4e404d2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.183361
+      value: 3.86
       objectReference: {fileID: 0}
     - target: {fileID: 4666782359134743566, guid: 6bacec7263380186f9c704aed4e404d2,
         type: 3}
@@ -8224,21 +8224,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 2273260889336073696, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
-      propertyPath: m_Name
-      value: Floor_Edge
-      objectReference: {fileID: 0}
-    - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -142
-      objectReference: {fileID: 0}
-    - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -8281,6 +8266,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273260889336073696, guid: e75e415b03bd32f47a8601e5f6eef6b2,
+        type: 3}
+      propertyPath: m_Name
+      value: Floor_Edge
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9037,60 +9027,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 2273260889336073696, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
-      propertyPath: m_Name
-      value: Floor_Edge (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -132
-      objectReference: {fileID: 0}
-    - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 31
-      objectReference: {fileID: 0}
-    - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.50008726
-      objectReference: {fileID: 0}
-    - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.49991274
-      objectReference: {fileID: 0}
-    - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.50008726
-      objectReference: {fileID: 0}
-    - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.49991274
-      objectReference: {fileID: 0}
-    - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 1497427156095604570, guid: e75e415b03bd32f47a8601e5f6eef6b2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273260889336073696, guid: e75e415b03bd32f47a8601e5f6eef6b2,
+        type: 3}
+      propertyPath: m_Name
+      value: Floor_Edge (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
