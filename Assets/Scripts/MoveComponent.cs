@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MoveComponent : MonoBehaviour
 {
+    // 
+    
     //Requires a Character Controller to work
     public CharacterController charCon;
 	
@@ -36,18 +38,6 @@ public class MoveComponent : MonoBehaviour
 		return speedVar;
     }
 
-    public float CheckNearZero(float speedVar)
-    {
-        if(Mathf.Abs(speedVar) < 0.01f)
-        {
-            return 0f;
-        }
-        else
-        {
-            return speedVar;
-        }
-    }
-
     public float Cap(float speedVar, float speedCap, float magni)
     {
         if(Mathf.Abs(speedVar) > (speedCap * Mathf.Abs(magni)))
@@ -55,32 +45,6 @@ public class MoveComponent : MonoBehaviour
             return speedCap * magni;
         }
         return speedVar;
-    }
-
-    public void BoundXY(float xBound, float yBound)
-    {
-        if (transform.position.x < -xBound)
-        {
-            transform.position = new Vector3(-xBound, transform.position.y, transform.position.z);
-        }
-        else if (transform.position.x > xBound)
-        {
-            transform.position = new Vector3(xBound, transform.position.y, transform.position.z);
-        }
-
-        if (transform.position.y < -yBound)
-        {
-            transform.position = new Vector3(transform.position.x, -yBound, transform.position.z);
-        }
-        else if (transform.position.y > yBound)
-        {
-            transform.position = new Vector3(transform.position.x, yBound, transform.position.z);
-        }
-    }
-
-    public void ResetY()
-    {
-        transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
     }
 
     public Vector3 Move(Vector3 moveDir)

@@ -20,9 +20,10 @@ public class SpawningComponent : MonoBehaviour
         return newObject;
     }
 
-    IEnumerator Despawn(GameObject despawnee, float timer)
+    // Moved to the GameManager.
+    /*IEnumerator Despawn(GameObject despawnee, float timer)
     {
         yield return new WaitForSeconds(timer);
         Destroy(despawnee);
-    }
+    }*/
 }

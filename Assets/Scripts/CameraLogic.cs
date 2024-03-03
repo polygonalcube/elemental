@@ -7,6 +7,8 @@ public class CameraLogic : MonoBehaviour
 {
     // The script for the first-person camera.
 
+    // By moving the mouse, the player can get rotated horizontally, & the camera can pan vertically.
+
     [SerializeField] float sensitivity = 3f; // Higher values equate to stronger camera rotations.
 
     //mouse
