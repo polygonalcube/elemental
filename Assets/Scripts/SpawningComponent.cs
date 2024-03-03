@@ -15,7 +15,8 @@ public class SpawningComponent : MonoBehaviour
         }
         if (destroyTimer > 0f)
         {
-            GameManager.gm.StartCoroutine(Despawn(newObject, destroyTimer));
+            StartCoroutine(GameManager.gm.Despawn(newObject, destroyTimer));
+            // Note: This also works [GameManager.gm.StartCoroutine(Despawn(newObject, destroyTimer));].
         }
         return newObject;
     }

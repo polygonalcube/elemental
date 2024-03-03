@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     // Destroys the given object in the specified time.
     // Was previously part of the SpawningComponent, but moved to the GameManager, 
     // due to issues with the SpawningComponent not being able to despawn the object if the SpawningComponent gets destroyed.
-    IEnumerator Despawn(GameObject despawnee, float timer)
+    public IEnumerator Despawn(GameObject despawnee, float timer)
     {
         yield return new WaitForSeconds(timer);
         Destroy(despawnee);
