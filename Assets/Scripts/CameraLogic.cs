@@ -9,7 +9,7 @@ public class CameraLogic : MonoBehaviour
 
     // By moving the mouse, the player can get rotated horizontally, & the camera can pan vertically.
 
-    [SerializeField] float sensitivity = 3f; // Higher values equate to stronger camera rotations.
+    public float sensitivity = 3f; // Higher values equate to stronger camera rotations.
 
     //mouse
     public InputAction cam; // Mouse input.
