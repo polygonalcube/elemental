@@ -17,7 +17,7 @@ public class Lever : MonoBehaviour
 
     void Start()
     {
-        pullPart.eulerAngles = new Vector3(0f, 0f, -45f);
+        pullPart.localEulerAngles = new Vector3(0f, 0f, -45f);
         positions = new Vector3[doors.Length];
     }
 
@@ -25,9 +25,9 @@ public class Lever : MonoBehaviour
     {
         if (hasActivated)
         {
-            float prevRot = pullPart.eulerAngles.z;
-            if (amountRotated < 90f) pullPart.eulerAngles -= new Vector3(0f, 0f, 1f) * rotSpdMultiplier;
-            amountRotated += Mathf.Abs(pullPart.eulerAngles.z - prevRot);
+            float prevRot = pullPart.localEulerAngles.z;
+            if (amountRotated < 90f) pullPart.localEulerAngles -= new Vector3(0f, 0f, 1f) * rotSpdMultiplier;
+            amountRotated += Mathf.Abs(pullPart.localEulerAngles.z - prevRot);
             if ((doors[0] != null) && (doors[1] != null))
             {
                 for (int i = 0; i < doors.Length; i++)

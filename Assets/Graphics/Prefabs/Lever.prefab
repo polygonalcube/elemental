@@ -51,7 +51,7 @@ MonoBehaviour:
   pullPart: {fileID: 6335769472812505009}
   hasActivated: 0
   amountRotated: 0
-  rotSpdMultiplier: 0
+  rotSpdMultiplier: 0.5
   doors: []
   ascendSpd: 1.5
 --- !u!136 &8395805769355468575
