@@ -1,5 +1,4 @@
 using System.Collections;
-//using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawningComponent : MonoBehaviour
@@ -20,11 +19,4 @@ public class SpawningComponent : MonoBehaviour
         }
         return newObject;
     }
-
-    // Moved to the GameManager.
-    /*IEnumerator Despawn(GameObject despawnee, float timer)
-    {
-        yield return new WaitForSeconds(timer);
-        Destroy(despawnee);
-    }*/
 }

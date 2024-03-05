@@ -1,5 +1,3 @@
-//using System.Collections;
-//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,9 +7,8 @@ public class CameraLogic : MonoBehaviour
 
     // By moving the mouse, the player can get rotated horizontally, & the camera can pan vertically.
 
-    [SerializeField] float sensitivity = 3f; // Higher values equate to stronger camera rotations.
+    public float sensitivity = 3f; // Higher values equate to stronger camera rotations.
 
-    //mouse
     public InputAction cam; // Mouse input.
 
     public Vector2 movValue = Vector2.zero; // The variable that the result of the mouse input will be passed to.

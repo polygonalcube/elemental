@@ -1,8 +1,6 @@
 using System.Collections;
-//using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-//using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UILogic : MonoBehaviour
@@ -16,10 +14,14 @@ public class UILogic : MonoBehaviour
     [SerializeField] Image sel;
     PlayerLogic player;
 
+    [SerializeField] GameObject options;
+    [SerializeField] Slider senSlider;
+
     void Start()
     {
         StartCoroutine(TutorialDisplay());
         player = GameManager.gm.FindPlayerScript();
+        options.SetActive(false);
     }
 
     void Update()
@@ -30,6 +32,14 @@ public class UILogic : MonoBehaviour
 
         //method for moving UI elements; if this yields unexpected results, replace "localPosition" with "anchoredPosition"
         sel.GetComponent<RectTransform>().localPosition = new Vector3(650f + (120f * (int)player.element), -470f, 0f);
+
+        if (Input.GetButtonDown("Pause"))
+        {
+            Time.timeScale = (Time.timeScale == 1f) ? 0f : 1f;
+            Cursor.lockState = (Time.timeScale == 1f) ? CursorLockMode.Locked : CursorLockMode.None;
+            options.SetActive(!options.activeSelf);
+            if (!options.activeSelf) GameManager.gm.SetSensitivity(senSlider.value);
+        }
     }
 
     IEnumerator TutorialDisplay()

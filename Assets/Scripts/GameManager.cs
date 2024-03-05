@@ -1,5 +1,4 @@
 using System.Collections;
-//using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -18,6 +17,11 @@ public class GameManager : MonoBehaviour
             gm = this;
         }
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    void Start()
+    {
+        Time.timeScale = 1f;
     }
 
     // Differs from Mathf.Sign() in that it can return 0;
@@ -42,6 +46,11 @@ public class GameManager : MonoBehaviour
     public PlayerLogic FindPlayerScript()
     {
         return GameObject.Find("Player").GetComponent<PlayerLogic>();
+    }
+
+    public void SetSensitivity(float newVal)
+    {
+        GameObject.Find("Main Camera").GetComponent<CameraLogic>().sensitivity = newVal;
     }
 
     // Destroys the given object in the specified time.
