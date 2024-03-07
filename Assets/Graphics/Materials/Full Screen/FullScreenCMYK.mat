@@ -109,8 +109,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DotScale: 297
-    - _DotSize: 0.546
+    - _DotScale: 310
+    - _DotSize: 0.53
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
@@ -122,15 +122,15 @@ Material:
     - _Lit_Threshold: 1
     - _M_Rotation: 75
     - _Metallic: 0
-    - _NoiseScale: 3.32
-    - _NoiseStrength: 0.203
+    - _NoiseScale: 3.31
+    - _NoiseStrength: 0.612
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _PatternRandomness: 1.31
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Rotation: 45
-    - _Saturation: 3
+    - _Saturation: 1.74
     - _ShadingMultiplier: 0.1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -144,9 +144,9 @@ Material:
     - _Y_Rotation: 0
     - _ZWrite: 1
     m_Colors:
-    - _BG_Color: {r: 1, g: 0.9904385, b: 0.8820755, a: 0}
+    - _BG_Color: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Black: {r: 0, g: 0, b: 0, a: 0}
+    - _Black: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Cyan: {r: 0, g: 1, b: 1, a: 0}
     - _DotColor: {r: 0, g: 0, b: 0, a: 0}
