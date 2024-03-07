@@ -26,7 +26,7 @@ public class PillarLogic : MonoBehaviour
         {
             movRef = mover.MoveAngularly(direction * movMul);
         }
-        else if (movAmt < 6f)
+        else if (movAmt < 7f)
         {
             movRef = mover.MoveAngularly(direction);
         }
