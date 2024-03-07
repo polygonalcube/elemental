@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     // Allows for Singleton.
     public static GameManager gm;
+
+    public Material burning;
     
     void Awake()
     {
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+        UniqueDoorMats();
     }
 
     // Differs from Mathf.Sign() in that it can return 0;
@@ -60,5 +63,16 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
         Destroy(despawnee);
+    }
+
+    public void UniqueDoorMats()
+    {
+        GameObject[] doors = GameObject.FindGameObjectsWithTag("Wooden Door");
+        foreach (GameObject door in doors)
+        {
+            Material[] mats = door.GetComponent<WoodDoor>().mr.materials;
+            mats[1] = new Material(burning);
+            door.GetComponent<WoodDoor>().mr.materials = mats;
+        }
     }
 }

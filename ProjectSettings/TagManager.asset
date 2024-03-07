@@ -8,6 +8,7 @@ TagManager:
   - Stone Pillar
   - Earth
   - Air
+  - Wooden Door
   layers:
   - Default
   - TransparentFX
