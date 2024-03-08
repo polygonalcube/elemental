@@ -21,11 +21,11 @@ public class PlayerLogic : MonoBehaviour
     public float elemVal;
     public enum Elements
     {
+        AIR,
         EARTH,
-        FIRE,
-        AIR
+        FIRE
     }
-    public Elements element = Elements.EARTH;
+    public Elements element = Elements.AIR;
 
     //shooting
     public InputAction shooting;
@@ -109,8 +109,15 @@ public class PlayerLogic : MonoBehaviour
     {
         switch (element)
         {
-            case Elements.EARTH:
+            case Elements.AIR:
                 if (shotVal > 0f && unlocks[0])
+                {
+                    winder.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward, destroyTimer: 1f);
+                    StartCoroutine(Cast());
+                }
+                break;
+            case Elements.EARTH:
+                if (shotVal > 0f && unlocks[1])
                 {
                     LayerMask ignoreLayer = LayerMask.NameToLayer("Player");
                     RaycastHit hit;
@@ -122,19 +129,13 @@ public class PlayerLogic : MonoBehaviour
                 }
                 break;
             case Elements.FIRE:
-                if (shotVal > 0f && unlocks[1])
+                if (shotVal > 0f && unlocks[2])
                 {
                     burner.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward, destroyTimer: 3f);
                     StartCoroutine(Cast());
                 }
                 break;
-            case Elements.AIR:
-                if (shotVal > 0f && unlocks[2])
-                {
-                    winder.Shoot(shotOrigin.transform.position, shotOrigin.transform.forward, destroyTimer: 1f);
-                    StartCoroutine(Cast());
-                }
-                break;
+            
         }
     }
     
@@ -142,13 +143,13 @@ public class PlayerLogic : MonoBehaviour
     {
         while (true)
         {
+            element = Elements.AIR;
+            yield return new WaitUntil(() => elemVal == 0f);
+            yield return new WaitUntil(() => elemVal > 0f);
             element = Elements.EARTH;
             yield return new WaitUntil(() => elemVal == 0f);
             yield return new WaitUntil(() => elemVal > 0f);
             element = Elements.FIRE;
-            yield return new WaitUntil(() => elemVal == 0f);
-            yield return new WaitUntil(() => elemVal > 0f);
-            element = Elements.AIR;
             yield return new WaitUntil(() => elemVal == 0f);
             yield return new WaitUntil(() => elemVal > 0f);
         }

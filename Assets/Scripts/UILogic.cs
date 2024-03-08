@@ -26,9 +26,9 @@ public class UILogic : MonoBehaviour
 
     void Update()
     {
-        earth.gameObject.SetActive(player.unlocks[0]);
-        fire.gameObject.SetActive(player.unlocks[1]);
-        air.gameObject.SetActive(player.unlocks[2]);
+        air.gameObject.SetActive(player.unlocks[0]);
+        earth.gameObject.SetActive(player.unlocks[1]);
+        fire.gameObject.SetActive(player.unlocks[2]);
 
         //method for moving UI elements; if this yields unexpected results, replace "localPosition" with "anchoredPosition"
         sel.GetComponent<RectTransform>().localPosition = new Vector3(650f + (120f * (int)player.element), -470f, 0f);

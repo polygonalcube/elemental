@@ -4,7 +4,7 @@ public class ElementCollect : MonoBehaviour
 {
     // The logic for the permanent element power-ups.
 
-    //                         earth, fire,  air
+    //                         air,   earth, fire
     public bool[] willGrant = {false, false, true}; // Determines which element will be granted to the player upon collection
 
     void OnTriggerEnter(Collider col)
