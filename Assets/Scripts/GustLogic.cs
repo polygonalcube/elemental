@@ -9,11 +9,18 @@ public class GustLogic : MonoBehaviour
     
     public MoveComponent mover;
     public Vector3 direction;
+
+    //public ParticleSystem wind;
+    SpawningComponent windSpawner;
     
     void Start()
     {
         mover = GetComponent<MoveComponent>();
         transform.rotation = Quaternion.LookRotation(direction); // Aligns the rotation of the projectile with the direction its moving in.
+
+        //wind.Play();
+        //windSpawner = GetComponent<SpawningComponent>();
+        //windSpawner.Spawn(transform.position, this.gameObject);
     }
 
     void Update()
