@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-        UniqueDoorMats();
+        //UniqueDoorMats();
     }
 
     // Differs from Mathf.Sign() in that it can return 0;
@@ -70,9 +70,11 @@ public class GameManager : MonoBehaviour
         GameObject[] doors = GameObject.FindGameObjectsWithTag("Wooden Door");
         foreach (GameObject door in doors)
         {
-            Material[] mats = door.GetComponent<WoodDoor>().mr.materials;
+            Material[] mats = door.GetComponent<WoodDoor>().mr.sharedMaterials;
             mats[1] = new Material(burning);
-            door.GetComponent<WoodDoor>().mr.materials = mats;
+            door.GetComponent<WoodDoor>().mr.sharedMaterials = mats;
         }
+        Debug.Log("doors.Length:");
+        Debug.Log(doors.Length);
     }
 }

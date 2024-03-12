@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1806519818640378951}
   m_Layer: 0
   m_Name: Wood Door
-  m_TagString: Untagged
+  m_TagString: Wooden Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

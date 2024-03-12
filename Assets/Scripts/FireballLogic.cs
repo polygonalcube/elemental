@@ -16,6 +16,7 @@ public class FireballLogic : MonoBehaviour
     void Start()
     {
         mover = GetComponent<MoveComponent>();
+        effectSpawner = GetComponent<SpawningComponent>();
     }
 
     void Update()
