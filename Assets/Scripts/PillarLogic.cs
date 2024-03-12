@@ -22,14 +22,8 @@ public class PillarLogic : MonoBehaviour
     void Update()
     {
         float prevY = transform.position.y;
-        if (movAmt < slowMovThres)
-        {
-            movRef = mover.MoveAngularly(direction * movMul);
-        }
-        else if (movAmt < 7f)
-        {
-            movRef = mover.MoveAngularly(direction);
-        }
+        if (movAmt < slowMovThres) movRef = mover.MoveAngularly(direction * movMul);
+        else if (movAmt < 7f) movRef = mover.MoveAngularly(direction);
         movAmt += Mathf.Abs(transform.position.y - prevY);
     }
 }

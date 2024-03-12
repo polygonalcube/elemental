@@ -35,6 +35,7 @@ public class CameraLogic : MonoBehaviour
 
     void Update()
     {
+        /* New input system attempt.
         movValue = cam.ReadValue<Vector2>(); // The results of the frame's input gets passed to a variable.
         xRot -= movValue.y * sensitivity * Time.deltaTime; // xRot gets decremented (dec because of Unity rotations) by the y component of input * sensitivity.
         xRot = Mathf.Clamp(xRot, -90f, 90f); // Clamps the xRot variable. This prevents players from looking too far up or down.
@@ -46,6 +47,19 @@ public class CameraLogic : MonoBehaviour
         else // If not null...
         {
             player.Rotate(Vector3.up, movValue.x * sensitivity * Time.deltaTime); // rotate the player horizontally.
+        }
+        */
+
+        xRot -= Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime; // xRot gets decremented (dec because of Unity rotations) by the y component of input * sensitivity.
+        xRot = Mathf.Clamp(xRot, -90f, 90f); // Clamps the xRot variable. This prevents players from looking too far up or down.
+        transform.localRotation = Quaternion.Euler(xRot, 0f, 0f); // Rotates the camera vertically.
+        if (player == null) // If the player variable is null...
+        {
+            player = GameManager.gm.FindPlayer().transform; // search for the player transform again. This will run each frame until the player is found.
+        }
+        else // If not null...
+        {
+            player.Rotate(Vector3.up, Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime); // rotate the player horizontally.
         }
     }
 }
