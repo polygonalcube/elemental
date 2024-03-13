@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         Destroy(despawnee);
     }
 
+    /*
     public void UniqueDoorMats()
     {
         GameObject[] doors = GameObject.FindGameObjectsWithTag("Wooden Door");
@@ -77,4 +78,5 @@ public class GameManager : MonoBehaviour
         Debug.Log("doors.Length:");
         Debug.Log(doors.Length);
     }
+    */
 }
